@@ -3,23 +3,13 @@ import {
   AlignJustify,
   AlignLeft,
   AlignRight,
-  Baseline,
-  Bold,
   ChevronDown,
-  Highlighter,
-  Italic,
   List,
   ListOrdered,
-  Strikethrough,
-  Underline,
 } from "lucide-react";
+import FormattingBtns from "./FormattingBtns";
+import ColorHighlight from "./ColorHighlight";
 
-export const formattingBtns = [
-  { Icon: Bold, name: "bold", func: "toggleBold" },
-  { Icon: Italic, name: "italic", func: "toggleItalic" },
-  { Icon: Underline, name: "underline", func: "toggleUnderline" },
-  { Icon: Strikethrough, name: "strike", func: "toggleStrike" },
-];
 export const paragraphBtns = [
   { Icon: AlignLeft, align: "left" },
   { Icon: AlignCenter, align: "center" },
@@ -51,37 +41,8 @@ export default function Format() {
               <ChevronDown strokeWidth={1} size={18} />
             </div>
             <div className="w-full mt-3 flex justify-between gap-4">
-              <div
-                className="flex cursor-pointer rounded w-fit border col-span-6 sm:col-span-4 lg:col-span-3 lg:mb-0"
-              >
-                {formattingBtns.map(({ name, Icon }, i) => {
-                  return (
-                    <div
-                      key={name}
-                      className={`${i === 0
-                        ? "bg-blue-500 text-white hover:bg-blue-500"
-                        : `hover:bg-slate-100 bg-white}`} 
-                        p-2 rounded ${i === formattingBtns.length - 1
-                          ? "border-none"
-                          : "border-r"
-                        }`
-                      }
-                    >
-                      <Icon size={18} />
-                    </div>
-                  );
-                })}
-              </div>
-              <div
-                className="flex items-center cursor-pointer rounded w-fit border col-span-6 sm:col-span-4 lg:mb-0"
-              >
-                <div className="flex items-center cursor-pointer rounded w-fit border col-span-6 sm:col-span-4 lg:mb-0">
-                  <Baseline size={35} className="hover:bg-slate-100 p-2 rounded border-r" />
-                  <ChevronDown size={35} strokeWidth={1} className="py-2 w-fit hover:bg-slate-100 border-r" />
-                  <Highlighter size={35} color="#fdfb7a" className="hover:bg-slate-100 p-2 rounded border-r" />
-                  <ChevronDown size={35} strokeWidth={1} className="py-2 w-fit hover:bg-slate-100 border-r" />
-                </div>
-              </div>
+              <FormattingBtns isBubbleMenuBtn={false} />
+              <ColorHighlight isBubbleMenuBtn={false} />
             </div>
           </div>
         </fieldset>
