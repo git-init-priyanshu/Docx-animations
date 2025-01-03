@@ -77,24 +77,24 @@ export default function BubbleMenu({ setDisplayText, setIsHighlightVisible }: Be
 
     const dropdownTimeout = setTimeout(() => {
       setIsDropdownVisible(true);
-    }, 6000)
+    }, 5500)
 
     const removeDropdownTimeout = setTimeout(() => {
       setIsDropdownVisible(false);
       setIsMenuVisible(false);
       setIsGenerating(true);
-    }, 8100)
+    }, 7600)
 
     const removeGeneratingTimeout = setTimeout(() => {
       setIsGenerating(false);
       setIsGenTxtVisible(true);
-    }, 15000)
+    }, 9000)
 
     const removeGenTxtTimeout = setTimeout(() => {
       setIsGenTxtVisible(false);
-      setDisplayText("This document demonstrats AI capabilities of this project.")
+      setDisplayText("This document highlights the advanced AI capabilities integrated into this project.")
       setIsHighlightVisible(false);
-    }, 16700)
+    }, 11900)
 
     return () => {
       window.clearTimeout(bubbleTimeout)
@@ -147,6 +147,7 @@ export default function BubbleMenu({ setDisplayText, setIsHighlightVisible }: Be
       {
         isDropdownVisible &&
         <motion.div
+          key="dropdown"
           className="absolute flex flex-col bg-white shadow-md rounded-md w-56 z-10 p-1 scale-[0.9] -top-4 -left-8"
           initial={state}
           animate={animation}
@@ -178,6 +179,7 @@ export default function BubbleMenu({ setDisplayText, setIsHighlightVisible }: Be
       }
       {isGenerating &&
         <motion.div
+          key="generating"
           className="absolute flex gap-2 items-center bg-white shadow-md rounded-md w-max z-10 p-2 px-4 scale-[0.9] top-6 left-20"
           initial={state}
           animate={animation}
@@ -251,6 +253,7 @@ export default function BubbleMenu({ setDisplayText, setIsHighlightVisible }: Be
         isGenTxtVisible &&
         <>
           <motion.div
+            key="generatedText"
             className="absolute gap-2 items-center bg-white shadow-md rounded-md w-max z-10 p-2 px-4 scale-[0.9] top-6 left-10"
             initial={state}
             animate={animation}

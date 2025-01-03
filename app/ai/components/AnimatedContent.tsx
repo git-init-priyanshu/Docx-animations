@@ -6,7 +6,7 @@ import useMotionTimeline from '@/app/hooks/useMotionTimeline';
 import BubbleMenu from './BubbleMenu';
 
 export default function AnimatedContent() {
-  const [displayText, setDisplayText] = useState("This document demonstrats AI feature of this project.");
+  const [displayText, setDisplayText] = useState("This document showcases the project's advanced AI capabilities.");
   const [isHighlightVisible, setIsHighlightVisible] = useState(true);
 
   const scope = useMotionTimeline([
@@ -14,14 +14,14 @@ export default function AnimatedContent() {
       [".highlight", { width: "100%" }, { ease: "easeInOut", delay: 1, duration: 2 }],
       [".cursor", { x: "65%" }, { ease: "easeInOut", delay: 1, duration: 2 }],
     ],
-    [".cursor", { left: "-150%", top: "-100%" }, { ease: "easeInOut", delay: 0.5, duration: 2 }],
+    [".cursor", { left: "-155%", top: "-110%" }, { ease: "easeInOut", delay: 0.5, duration: 1.5 }],
     [".cursor", { scale: 0.8 }, { ease: "easeInOut", delay: 0.2, duration: 0.1 }],
     [".cursor", { scale: 1 }, { ease: "easeInOut" }],
-    [".cursor", { left: "-140%", y: "220%" }, { ease: "easeInOut", delay: 0.5, duration: 1 }],
+    [".cursor", { left: "-150%", y: "220%" }, { ease: "easeInOut", delay: 0.5, duration: 0.8 }],
     [".cursor", { scale: 0.8 }, { ease: "easeInOut", delay: 0.2, duration: 0.1 }],
     [".cursor", { scale: 1 }, { ease: "easeInOut" }],
-    [".cursor", { left: "-80%", y: "500%" }, { ease: "easeInOut", delay: 0.5, duration: 3 }],
-    [".cursor", { left: "-100%", y: "500%" }, { ease: "easeInOut", delay: 4, duration: 0.5 }],
+    [".cursor", { left: "-90%", y: "550%" }, { ease: "easeInOut", delay: 0.1, duration: 1.5 }],
+    [".cursor", { left: "-105%", y: "500%" }, { ease: "easeInOut", delay: 0.5, duration: 1.5 }],
     [".cursor", { scale: 0.8 }, { ease: "easeInOut", delay: 0.2, duration: 0.1 }],
     [".cursor", { scale: 1 }, { ease: "easeInOut" }],
   ])
@@ -29,14 +29,14 @@ export default function AnimatedContent() {
   return (
     <>
       <div ref={scope} className=''>
-        <h3 className="text-[250%] text-center font-bold text-blue-500 mb-4">AI Feature</h3>
+        {/* <h3 className="text-[250%] text-center font-bold text-blue-500 mb-4">AI Feature</h3> */}
         <span className="relative">
           {displayText}
 
           {/* Bubble menu */}
-          <BubbleMenu 
+          <BubbleMenu
             setDisplayText={setDisplayText}
-            setIsHighlightVisible={setIsHighlightVisible} 
+            setIsHighlightVisible={setIsHighlightVisible}
           />
 
           {/* Highlighted text */}
@@ -86,8 +86,9 @@ export default function AnimatedContent() {
           </motion.svg>
         </span>
         {" "}
+        <br/>
         <span>
-          Try generating ideas, refining text, or summarizing content with built-in AI functionality.
+          Try improvising the content, fixing spellings and grammar, translating it, simplifying the language, or adjusting the length to suit your needs.
         </span>
       </div>
     </>
